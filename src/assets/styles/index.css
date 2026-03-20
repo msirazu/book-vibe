@@ -1,4 +1,16 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: light;
-};
+@plugin "daisyui";
+
+@theme {
+  --color-one: #23BE0A;
+  --color-two: #59C6D2;
+}
+
+@layer utilities {
+  .btn-one {
+    @apply bg-one text-white rounded-lg;
+  }
+  .btn-two {
+    @apply bg-two text-white rounded-lg;
+  }
+}
