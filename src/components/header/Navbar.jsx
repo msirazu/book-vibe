@@ -7,7 +7,7 @@ const navData = [
 ];
 
 const Navbar = () => {
-    const links = navData.map(link => <NavLink to={link.path} key={link.id} className='btn'>{link.name}</NavLink>)
+    const links = navData.map(link => <NavLink to={link.path} key={link.id} className='btn font-work'>{link.name}</NavLink>)
     return (
         <nav>
             <div className="navbar bg-base-100 shadow-sm">

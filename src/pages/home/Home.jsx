@@ -1,7 +1,14 @@
+import HeroBanner from "../../components/banner/HeroBanner";
+
 const Home = () => {
     return (
         <div>
-            this is home page
+            <section id="hero-section">
+                <HeroBanner/>
+            </section>
+            <section id="books-section">
+
+            </section>
         </div>
     );
 };

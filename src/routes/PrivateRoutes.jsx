@@ -1,4 +1,4 @@
-const PrivateRoutes = ({ children }) => {
+const PrivateRoutes = () => {
     return (
         <div>
             

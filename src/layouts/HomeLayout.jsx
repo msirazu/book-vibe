@@ -5,13 +5,13 @@ import Footer from "../components/footer/Footer";
 const HomeLayout = () => {
     return (
         <div>
-            <header className="w-10/12 mx-auto">
+            <header className="w-11/12 md:w-10/12 mx-auto">
                 <Header/>
             </header>
-            <main className="w-10/12 mx-auto">
+            <main className="w-11/12 md:w-10/12 mx-auto">
                 <Outlet/>
             </main>
-            <footer className="w-10/12 mx-auto">
+            <footer className="w-11/12 md:w-10/12 mx-auto">
                 <Footer/>
             </footer>
         </div>
