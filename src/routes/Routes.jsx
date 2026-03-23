@@ -8,6 +8,7 @@ import AuthLayout from '../layouts/AuthLayout';
 import Login from '../auth/login/Login';
 import PrivateRoutes from './PrivateRoutes';
 import HomeBookDetails from '../pages/books/HomeBookDetails';
+import Register from '../auth/register/Register';
 
 const router = createBrowserRouter([
     {path: '/', element: <HomeLayout/>, children: [
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
         {path: '', element: <DashboardHome/>}
     ]},
     {path: 'dashboard/auth/', element: <AuthLayout/>, children: [
-        {path: 'login', element: <Login/>}
+        {path: 'login', element: <Login/>},
+        {path: 'register', element: <Register/>}
     ]},
 ]);
 

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import DataContext from "../../auth/context/DataContext";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const HomeBookDetails = () => {
     const books = useContext(DataContext);
@@ -8,6 +9,11 @@ const HomeBookDetails = () => {
     const book = books.find(b => b.bookId === Number(bookId));
     const {bookName, author, image, category, publisher, rating, review, tags, totalPages, yearOfPublishing} = book;
     return (
+        <>
+        <Helmet>
+            <title>{`${bookName} | Book Vibe`}</title>
+            <meta name='description' content={`${bookName} book full details`}/>
+        </Helmet>
         <div>
             <section className="flex flex-col justify-between my-5 gap-10 lg:flex-row">
                 <div id="book-image-container" className="flex-1">
@@ -42,6 +48,7 @@ const HomeBookDetails = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
 

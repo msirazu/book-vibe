@@ -1,18 +1,18 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 
-const DashboardHome = () => {
+const Register = () => {
     return (
         <>
         <Helmet>
-            <title>Dashboard | Book Vibe</title>
-            <meta name='description' content='dashboard page'/>
+            <title>Register | Book Vibe</title>
+            <meta name='description' content='register page'/>
         </Helmet>
         <div className="flex justify-center items-center h-screen">
             <section className="space-y-5">
             <div>
             <h1 className="capitalize">
-            dashboard page comming soon
+            register page comming soon
             </h1>
             </div>
             <div className="flex gap-5">
@@ -29,4 +29,4 @@ const DashboardHome = () => {
     );
 };
 
-export default DashboardHome;
+export default Register;
