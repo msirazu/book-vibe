@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const navData = [
   { id: 1, name: "Home", path: "/" },
-  { id: 2, name: "Listed Books", path: "/about" },
+  { id: 2, name: "Listed Books", path: "/books" },
   { id: 3, name: "Pages to Read", path: "/contact" }
 ];
 
