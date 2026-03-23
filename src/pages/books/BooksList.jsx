@@ -2,8 +2,10 @@ import { Helmet } from 'react-helmet-async';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { sortType } from '../../utilities/sortBy';
 
-const BooksList = () => {
+const BooksList = () => { 
     return (
         <>
         <Helmet>
@@ -15,7 +17,14 @@ const BooksList = () => {
                 <h1 className='font-bold text-xl'>Books</h1>
             </div>
             <div className='flex justify-center items-center'>
-                <button className='btn btn-one flex items-center'>Sort By <ChevronDown/></button>
+                <div className="dropdown">
+  <div tabIndex={0} role="button" className="btn m-1 btn-one">Sort By <ChevronDown/></div>
+  <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+    <li><button onClick={() => sortType('rating')}>Rating</button></li>
+    <li><button onClick={() => sortType('page')}>Number of Pages</button></li>
+    <li><button onClick={() => sortType('year')}>Publisher of Year</button></li>
+  </ul>
+</div>
             </div>
         </section>
         <section className='my-5'>
