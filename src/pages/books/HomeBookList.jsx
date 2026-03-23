@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+
 const HomeBookList = ({ book }) => {
-    const {bookName, author, image, category, publisher, rating, review, tags, totalPages, yearOfPublishing} = book;
+    const {bookName, author, image, category, publisher, rating, review, tags, totalPages, yearOfPublishing, bookId} = book;
     return (
+        <>
+        <Link to={`/book-details/${bookId}`}>
         <div className="border border-gray-300 p-5 rounded-xl">
             <section className="w-full space-y-3">
                 <div className="bg-four flex justify-center p-5">
@@ -20,6 +24,8 @@ const HomeBookList = ({ book }) => {
                 </div>
             </section>
         </div>
+        </Link>
+        </>
     );
 };
 

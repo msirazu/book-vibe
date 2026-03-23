@@ -7,18 +7,20 @@ import DashboardHome from '../pages/dashboard/DashboardHome';
 import AuthLayout from '../layouts/AuthLayout';
 import Login from '../auth/login/Login';
 import PrivateRoutes from './PrivateRoutes';
+import HomeBookDetails from '../pages/books/HomeBookDetails';
 
 const router = createBrowserRouter([
     {path: '/', element: <HomeLayout/>, children: [
         {path: '', element: <Home/>},
         {path: '*', element: <NotFound/>},
+        {path: 'book-details/:bookId', element: <HomeBookDetails/>}
     ]},
     {path: 'dashboard', element: <PrivateRoutes><DashboardLayout/></PrivateRoutes>, children: [
         {path: '', element: <DashboardHome/>}
     ]},
     {path: 'dashboard/auth/', element: <AuthLayout/>, children: [
         {path: 'login', element: <Login/>}
-    ]}
+    ]},
 ]);
 
 export default router;

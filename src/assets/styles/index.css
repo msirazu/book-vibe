@@ -9,6 +9,7 @@
   --font-work: "Work Sans", sans-serif;
   --color-three: #13131305;
   --color-four: #F3F3F3;
+  --color-text: #13131370;
 }
 
 @layer utilities {
