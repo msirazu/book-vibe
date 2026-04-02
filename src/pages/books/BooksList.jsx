@@ -2,8 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { sortType } from '../../utilities/sortBy';
+import { sortType } from '../../utils/sortBy';
 
 const BooksList = () => { 
     return (

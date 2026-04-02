@@ -3,13 +3,13 @@ import HomeLayout from '../layouts/HomeLayout';
 import Home from '../pages/home/Home';
 import NotFound from '../pages/not-found/NotFound';
 import DashboardLayout from '../layouts/DashboardLayout';
-import DashboardHome from '../pages/dashboard/DashboardHome';
 import AuthLayout from '../layouts/AuthLayout';
-import Login from '../auth/login/Login';
 import PrivateRoutes from './PrivateRoutes';
 import HomeBookDetails from '../pages/books/HomeBookDetails';
-import Register from '../auth/register/Register';
 import BooksList from '../pages/books/BooksList';
+import DashboardHome from '../features/dashboard/DashboardHome';
+import Register from '../features/auth/register/Register';
+import Login from '../features/auth/login/Login';
 
 const router = createBrowserRouter([
     {path: '/', element: <HomeLayout/>, children: [

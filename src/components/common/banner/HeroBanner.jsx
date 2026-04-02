@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import bookImg from '../../assets/images/hero-book.png'; 
+import bookImg from '../../../assets/images/hero-book.png'; 
 
 const HeroBanner = () => {
     return (

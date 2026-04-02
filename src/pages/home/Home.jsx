@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import HeroBanner from "../../components/banner/HeroBanner";
 import HomeBooksList from "../books/HomeBooksList";
-import LoadingColors from "../../components/loading/LoadingColors";
 import { Helmet } from "react-helmet-async";
+import HeroBanner from "../../components/common/banner/HeroBanner";
+import LoadingColors from "../../components/ui/loading/LoadingColors";
 
 const fetchBookPromise = fetch('/data/booksData.json').then(res => res.json());
 

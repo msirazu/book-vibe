@@ -12,7 +12,7 @@ const DashboardHome = () => {
             <section className="space-y-5">
             <div>
             <h1 className="capitalize">
-            dashboard page comming soon
+            dashboard page coming soon
             </h1>
             </div>
             <div className="flex gap-5">

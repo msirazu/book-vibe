@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
@@ -13,7 +12,7 @@ const Login = () => {
             <section className="space-y-5">
             <div>
             <h1 className="capitalize">
-            login page comming soon
+            login page coming soon
             </h1>
             </div>
             <div className="flex gap-5">

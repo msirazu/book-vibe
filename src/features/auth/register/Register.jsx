@@ -12,7 +12,7 @@ const Register = () => {
             <section className="space-y-5">
             <div>
             <h1 className="capitalize">
-            register page comming soon
+            register page coming soon
             </h1>
             </div>
             <div className="flex gap-5">
