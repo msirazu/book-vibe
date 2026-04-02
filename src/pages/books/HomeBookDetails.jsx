@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { toast } from 'react-toastify';
-import { saveReadDataToLocalStorage, saveWishDataToLocalStorage } from "../../utils/localstoragedb";
 import DataContext from "../../features/auth/context/DataContext";
+import { saveReadDataToLocalStorage, saveWishDataToLocalStorage } from "../../utils/localStorage";
 
 const HomeBookDetails = () => {
     const books = useContext(DataContext);

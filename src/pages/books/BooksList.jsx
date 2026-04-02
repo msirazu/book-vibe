@@ -3,8 +3,16 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { ChevronDown } from 'lucide-react';
 import { sortType } from '../../utils/sortBy';
+import { getReadFromLocalStorage } from '../../utils/localStorage';
+import { useContext } from 'react';
+import DataContext from '../../features/auth/context/DataContext';
+import ReadBooksList from './ReadBooksList';
+import WishBooksList from './WishBooksList';
 
-const BooksList = () => { 
+const BooksList = () => {
+  const storedReadData = getReadFromLocalStorage();
+  const books = useContext(DataContext);
+  const readBookData = books.filter(b => storedReadData.includes(b.bookId));
     return (
         <>
         <Helmet>
@@ -35,12 +43,12 @@ const BooksList = () => {
 
     <TabPanel>
       <section id='read-book'>
-
+        <ReadBooksList readBookData={readBookData}/>
       </section>
     </TabPanel>
     <TabPanel>
       <section id='wish-book'>
-
+        <WishBooksList/>
       </section>
     </TabPanel>
   </Tabs>

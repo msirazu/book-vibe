@@ -10,6 +10,12 @@
   --color-three: #13131305;
   --color-four: #F3F3F3;
   --color-text: #13131370;
+  --color-five: #328EFF;
+  --color-six: #328EFF15;
+  --color-seven: #FFAC33;
+  --color-eight: #FFAC3315;
+  --color-nine: #23BE0A15;
+
 }
 
 @layer utilities {
@@ -21,5 +27,14 @@
   }
   .tag-one {
     @apply bg-four text-one rounded-lg;
+  }
+  .btn-three {
+    @apply bg-six px-5 py-1 rounded-full text-five
+  }
+  .btn-four {
+    @apply bg-eight px-5 py-1 rounded-full text-seven
+  }
+  .btn-five {
+    @apply bg-one px-5 py-1 rounded-full text-white cursor-pointer
   }
 }
