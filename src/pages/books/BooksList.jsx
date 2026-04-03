@@ -28,19 +28,19 @@ const BooksList = () => {
   }, []);
 
   const handleReadDelete = (id) => {
-        const filterRead = readData.filter(book => book.bookId !== id);
+        const filterRead = readData.filter(book => book.bookId !== id.bookId);
         const isDel = removeReadDataFromLocalStorage(filterRead);
         if (isDel) {
-          toast.success(`${id.bookName} Removed Successfully`)
+          toast.success(`${id.bookName} Removed from Read List`)
         }
         setReadData(filterRead);
     }
 
   const handleWishDelete = (id) => {
-       const filterWish = wishData.filter(book => book.bookId !== id);
+       const filterWish = wishData.filter(book => book.bookId !== id.bookId);
         const isDel = removeWishDataFromLocalStorage(filterWish);
         if (isDel) {
-          toast.success('Removed Successfully')
+          toast.success(`${id.bookName} Removed from Wish List`)
         }
         setWishData(filterWish);
     }  

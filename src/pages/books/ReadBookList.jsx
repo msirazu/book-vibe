@@ -12,7 +12,7 @@ const ReadBookList = ({ book, handleReadDelete }) => {
             <div className="w-full space-y-2">
                 <div className="flex justify-between items-center">
                 <h2 className="font-play font-bold text-2xl">{bookName}</h2>
-                <button className="btn-del" onClick={() => handleReadDelete(bookId)}>
+                <button className="btn-del" onClick={() => handleReadDelete(book)}>
                 <Delete/>
                 </button>
                 </div>

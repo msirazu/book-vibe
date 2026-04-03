@@ -12,7 +12,7 @@ const WishBookList = ({ book, handleWishDelete }) => {
             <div className="w-full space-y-2">
                 <div className="flex justify-between items-center">
                 <h2 className="font-play font-bold text-2xl">{bookName}</h2>
-                <button className="btn-del" onClick={() => handleWishDelete(bookId)}>
+                <button className="btn-del" onClick={() => handleWishDelete(book)}>
                 <Delete/>
                 </button>
                 </div>
