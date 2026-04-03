@@ -5,7 +5,7 @@ const HomeBookList = ({ book }) => {
     return (
         <>
         <Link to={`/book-details/${bookId}`}>
-        <div className="border border-gray-300 p-5 rounded-xl">
+        <div className="border border-gray-300 p-5 rounded-xl h-full">
             <section className="w-full space-y-3">
                 <div className="bg-four flex justify-center p-5">
             <img className="max-h-30" src={image}/>
