@@ -1,12 +1,29 @@
+import { toast } from "react-toastify";
+import { removeWishDataFromLocalStorage } from "../../utils/localStorage";
+import { Delete } from "lucide-react";
+
 const WishBookList = ({ book }) => {
-    const {bookName, author, image, category, publisher, rating, tags, totalPages, yearOfPublishing} = book;
+    const {bookName, author, image, category, publisher, rating, tags, totalPages, yearOfPublishing, bookId} = book;
+
+    const handleWishDelete = (id) => {
+        const isDel = removeWishDataFromLocalStorage(id);
+        if (isDel) {
+            toast.success('Removed Successfully')
+        }
+    }
+
     return (
         <div className="flex flex-col md:flex-row gap-5 border border-gray-300 rounded-xl p-3">
             <div className="bg-three px-15 py-5 rounded-lg flex justify-center items-center">
                 <img className="w-25 h-40 md:h-30" src={image} alt={bookName} />
             </div>
             <div className="w-full space-y-2">
+                <div className="flex justify-between items-center">
                 <h2 className="font-play font-bold text-2xl">{bookName}</h2>
+                <button className="btn-del" onClick={() => handleWishDelete(bookId)}>
+                <Delete/>
+                </button>
+                </div>
                 <h6>By: {author}</h6>
                 <div className="flex gap-5 flex-wrap">
                     <div>Tag: {tags}</div>

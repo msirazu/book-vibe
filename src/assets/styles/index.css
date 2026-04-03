@@ -37,4 +37,7 @@
   .btn-five {
     @apply bg-one px-5 py-1 rounded-full text-white cursor-pointer
   }
+  .btn-del {
+    @apply bg-gray-100 p-2 rounded-full hover:bg-gray-300 hover:cursor-pointer
+  }
 }

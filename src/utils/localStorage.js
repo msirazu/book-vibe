@@ -40,4 +40,20 @@ const saveWishDataToLocalStorage = (id) => {
     return true;
 }
 
-export {getReadFromLocalStorage, saveReadDataToLocalStorage, saveWishDataToLocalStorage, getWishFromLocalStorage};
+const removeReadDataFromLocalStorage = (id) => {
+    const storedRead = getReadFromLocalStorage();
+    const filterRead = storedRead.filter(book => book !== id);
+    const data = JSON.stringify(filterRead);
+    localStorage.setItem('bookVibeRead', data);
+    return true;
+}
+
+const removeWishDataFromLocalStorage = (id) => {
+    const storedWish = getWishFromLocalStorage();
+    const filterWish = storedWish.filter(book => book !== id);
+    const data = JSON.stringify(filterWish);
+    localStorage.setItem('bookVibeWish', data);
+    return true;
+}
+
+export {getReadFromLocalStorage, saveReadDataToLocalStorage, saveWishDataToLocalStorage, getWishFromLocalStorage, removeReadDataFromLocalStorage, removeWishDataFromLocalStorage};

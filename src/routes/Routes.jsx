@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     {path: 'dashboard', element: <PrivateRoutes><DashboardLayout/></PrivateRoutes>, children: [
         {path: '', element: <DashboardHome/>}
     ]},
-    {path: 'dashboard/auth/', element: <AuthLayout/>, children: [
+    {path: 'auth', element: <AuthLayout/>, children: [
         {path: 'login', element: <Login/>},
         {path: 'register', element: <Register/>}
     ]},
