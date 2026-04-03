@@ -1,4 +1,5 @@
 import { Delete } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WishBookList = ({ book, handleWishDelete }) => {
     const {bookName, author, image, category, publisher, rating, tags, totalPages, yearOfPublishing, bookId} = book;
@@ -28,7 +29,8 @@ const WishBookList = ({ book, handleWishDelete }) => {
                 <div className="flex gap-5 items-center flex-wrap">
                     <p className="btn-three">Category: {category}</p>
                     <p className="btn-four">Rating: {rating}</p>
-                    <button className="btn-five">View Details</button>
+                    <Link to={`/book-details/${bookId}`}>
+                    <button className="btn-five">View Details</button></Link>
                 </div>
             </div>
         </div>

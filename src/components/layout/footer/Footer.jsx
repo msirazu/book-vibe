@@ -34,7 +34,7 @@ const Footer = () => {
 </section>
 <section className="capitalize text-center text-[12px] bg-neutral text-neutral-content border-t border-dashed border-t-gray-500 py-2">
   <h6> 
-  copyright - {date.getFullYear()} @ <Link to='/'>book vibe</Link>. all rights reserved
+  copyright @ {date.getFullYear()} - <Link to='/'>book vibe</Link>. all rights reserved
   </h6>
 </section>
     </div>

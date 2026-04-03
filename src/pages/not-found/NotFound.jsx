@@ -1,8 +1,16 @@
+import { Helmet } from "react-helmet-async";
+
 const NotFound = () => {
     return (
-        <div>
-            oops not found
+        <>
+        <Helmet>
+            <title>Not Found | Book Vibe</title>
+            <meta name='description' content='not found page'/>
+        </Helmet>
+        <div className="flex justify-center items-center h-screen capitalize">
+            ops not found
         </div>
+        </>
     );
 };
 

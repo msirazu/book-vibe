@@ -14,18 +14,18 @@ const HomeBookDetails = () => {
     const handleRead = (id) => {
         const isAdded = saveReadDataToLocalStorage(id);
         if (isAdded) {
-            toast.success('Book Added to Read List Successfully')
+            toast.success(`${bookName} Added to Read List Successfully`)
         } else {
-            toast.error('Book Already Exists in Read List')
+            toast.error(`${bookName} Already Exists in Read List`)
         }
     }
 
     const handleWish = (id) => {
         const isAdded = saveWishDataToLocalStorage(id);
          if (isAdded) {
-            toast.success('Book Added to Wish List Successfully')
+            toast.success(`${bookName} Added to Wish List Successfully`)
         } else {
-            toast.error('Book Already Exists in Wish List')
+            toast.error(`${bookName} Already Exists in Wish List`)
         }
     }
 

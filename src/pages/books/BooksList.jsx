@@ -31,7 +31,7 @@ const BooksList = () => {
         const filterRead = readData.filter(book => book.bookId !== id);
         const isDel = removeReadDataFromLocalStorage(filterRead);
         if (isDel) {
-          toast.success('Removed Successfully')
+          toast.success(`${id.bookName} Removed Successfully`)
         }
         setReadData(filterRead);
     }
