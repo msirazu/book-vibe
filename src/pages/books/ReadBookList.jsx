@@ -1,16 +1,8 @@
 import { Delete } from "lucide-react";
-import { removeReadDataFromLocalStorage } from "../../utils/localStorage";
-import { toast } from "react-toastify";
 
-const ReadBookList = ({ book }) => {
+const ReadBookList = ({ book, handleReadDelete }) => {
     const {bookName, author, image, category, publisher, rating, tags, totalPages, yearOfPublishing, bookId} = book;
 
-    const handleReadDelete = (id) => {
-        const isDel = removeReadDataFromLocalStorage(id);
-        if (isDel) {
-            toast.success('Removed Successfully')
-        }
-    }
 
     return (
         <div className="flex flex-col md:flex-row gap-5 border border-gray-300 rounded-xl p-3">

@@ -1,16 +1,7 @@
-import { toast } from "react-toastify";
-import { removeWishDataFromLocalStorage } from "../../utils/localStorage";
 import { Delete } from "lucide-react";
 
-const WishBookList = ({ book }) => {
+const WishBookList = ({ book, handleWishDelete }) => {
     const {bookName, author, image, category, publisher, rating, tags, totalPages, yearOfPublishing, bookId} = book;
-
-    const handleWishDelete = (id) => {
-        const isDel = removeWishDataFromLocalStorage(id);
-        if (isDel) {
-            toast.success('Removed Successfully')
-        }
-    }
 
     return (
         <div className="flex flex-col md:flex-row gap-5 border border-gray-300 rounded-xl p-3">

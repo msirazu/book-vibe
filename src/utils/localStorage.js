@@ -9,11 +9,11 @@ const getReadFromLocalStorage = () => {
 
 const saveReadDataToLocalStorage = (id) => {
     const storedRead = getReadFromLocalStorage();
-    const bookId = Number(id);
-    if (storedRead.includes(bookId)) {
+    const isRead = storedRead.find(book => book.bookId === id.bookId);
+    if (isRead) {
         return false;
     }
-    storedRead.push(bookId);
+    storedRead.push(id);
     const data = JSON.stringify(storedRead);
     localStorage.setItem('bookVibeRead', data);
     return true;
@@ -30,28 +30,24 @@ const getWishFromLocalStorage = () => {
 
 const saveWishDataToLocalStorage = (id) => {
     const storedWish = getWishFromLocalStorage();
-    const bookId = Number(id);
-    if (storedWish.includes(bookId)) {
+    const isWish = storedWish.find(book => book.bookId === id.bookId);
+    if (isWish) {
         return false;
     }
-    storedWish.push(bookId);
+    storedWish.push(id);
     const data = JSON.stringify(storedWish);
     localStorage.setItem('bookVibeWish', data);
     return true;
 }
 
-const removeReadDataFromLocalStorage = (id) => {
-    const storedRead = getReadFromLocalStorage();
-    const filterRead = storedRead.filter(book => book !== id);
-    const data = JSON.stringify(filterRead);
+const removeReadDataFromLocalStorage = (book) => {
+    const data = JSON.stringify(book);
     localStorage.setItem('bookVibeRead', data);
     return true;
 }
 
-const removeWishDataFromLocalStorage = (id) => {
-    const storedWish = getWishFromLocalStorage();
-    const filterWish = storedWish.filter(book => book !== id);
-    const data = JSON.stringify(filterWish);
+const removeWishDataFromLocalStorage = (book) => {
+    const data = JSON.stringify(book);
     localStorage.setItem('bookVibeWish', data);
     return true;
 }

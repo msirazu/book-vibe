@@ -1,9 +1,9 @@
 import ReadBookList from "./ReadBookList";
 
-const ReadBooksList = ({ readBookData }) => {
+const ReadBooksList = ({ readData, handleReadDelete }) => {
     return (
         <div className="flex flex-col gap-5">
-            {readBookData.map(book => <ReadBookList book={book} key={book.bookId}/>)}
+            {readData.map(book => <ReadBookList book={book} key={book.bookId} handleReadDelete={handleReadDelete}/>)}
         </div>
     );
 };

@@ -1,9 +1,10 @@
 import WishBookList from "./WishBookList";
 
-const WishBooksList = ({ wishBookData }) => {
+const WishBooksList = ({ wishData, handleWishDelete }) => {
+    console.log(wishData);
     return (
         <div>
-            {wishBookData.map(book => <WishBookList book={book} key={book.bookId}/>)}
+            {wishData.map(book => <WishBookList book={book} key={book.bookId} handleWishDelete={handleWishDelete}/>)}
         </div>
     );
 };

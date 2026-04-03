@@ -3,19 +3,48 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { ChevronDown } from 'lucide-react';
 import { sortType } from '../../utils/sortBy';
-import { getReadFromLocalStorage, getWishFromLocalStorage } from '../../utils/localStorage';
-import { useContext } from 'react';
-import DataContext from '../../features/auth/context/DataContext';
+import { getReadFromLocalStorage, getWishFromLocalStorage, removeReadDataFromLocalStorage, removeWishDataFromLocalStorage } from '../../utils/localStorage';
+import { useEffect, useState } from 'react';
 import ReadBooksList from './ReadBooksList';
 import WishBooksList from './WishBooksList';
+import { toast } from 'react-toastify';
 
 const BooksList = () => {
-  const storedReadData = getReadFromLocalStorage();
-  const books = useContext(DataContext);
-  const readBookData = books.filter(b => storedReadData.includes(b.bookId));
+  const [readData, setReadData] = useState([]);
+  const [wishData, setWishData] = useState([]);
 
-  const storedWishData = getWishFromLocalStorage();
-  const wishBookData = books.filter(b => storedWishData.includes(b.bookId));
+  useEffect(() => {
+    const readPromise = () => {
+      const storedReadData = getReadFromLocalStorage();
+      setReadData(storedReadData);
+    }
+    readPromise();
+
+    const wishPromise = () => {
+      const storedWishData = getWishFromLocalStorage();
+      setWishData(storedWishData);
+    }
+    wishPromise();
+  }, []);
+
+  const handleReadDelete = (id) => {
+        const filterRead = readData.filter(book => book.bookId !== id);
+        const isDel = removeReadDataFromLocalStorage(filterRead);
+        if (isDel) {
+          toast.success('Removed Successfully')
+        }
+        setReadData(filterRead);
+    }
+
+  const handleWishDelete = (id) => {
+       const filterWish = wishData.filter(book => book.bookId !== id);
+        const isDel = removeWishDataFromLocalStorage(filterWish);
+        if (isDel) {
+          toast.success('Removed Successfully')
+        }
+        setWishData(filterWish);
+    }  
+
     return (
         <>
         <Helmet>
@@ -46,12 +75,12 @@ const BooksList = () => {
 
     <TabPanel>
       <section id='read-book'>
-        <ReadBooksList readBookData={readBookData}/>
+        <ReadBooksList readData={readData} handleReadDelete={handleReadDelete}/>
       </section>
     </TabPanel>
     <TabPanel>
       <section id='wish-book'>
-        <WishBooksList wishBookData={wishBookData}/>
+        <WishBooksList wishData={wishData} handleWishDelete={handleWishDelete}/>
       </section>
     </TabPanel>
   </Tabs>

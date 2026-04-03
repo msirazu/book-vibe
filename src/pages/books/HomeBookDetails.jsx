@@ -67,8 +67,8 @@ const HomeBookDetails = () => {
                     <p className="font-bold">{rating}</p>
                     </div>
                     <div className="flex gap-5">
-                        <button onClick={() => handleRead(bookId)} className="btn">Read</button>
-                        <button onClick={() => handleWish(bookId)}  className="btn btn-two text-white">Wishlist</button>
+                        <button onClick={() => handleRead(book)} className="btn">Read</button>
+                        <button onClick={() => handleWish(book)}  className="btn btn-two text-white">Wishlist</button>
                     </div>
                 </div>
             </section>
