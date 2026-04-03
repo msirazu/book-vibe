@@ -8,7 +8,7 @@ const NotFound = () => {
             <meta name='description' content='not found page'/>
         </Helmet>
         <div className="flex justify-center items-center h-screen capitalize">
-            ops not found
+            ops page not found
         </div>
         </>
     );

@@ -4,11 +4,15 @@ import { Helmet } from "react-helmet-async";
 import { toast } from 'react-toastify';
 import DataContext from "../../features/auth/context/DataContext";
 import { saveReadDataToLocalStorage, saveWishDataToLocalStorage } from "../../utils/localStorage";
+import BookNotFound from "../not-found/BookNotFound";
 
 const HomeBookDetails = () => {
     const books = useContext(DataContext);
     const { bookId } = useParams();
     const book = books.find(b => b.bookId === Number(bookId));
+    if (!book) {
+        return <BookNotFound/>
+    }
     const {bookName, author, image, category, publisher, rating, review, tags, totalPages, yearOfPublishing} = book;
     
     const handleRead = (id) => {
