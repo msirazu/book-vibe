@@ -2,16 +2,17 @@ import { Helmet } from 'react-helmet-async';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { ChevronDown } from 'lucide-react';
-import { sortType } from '../../utils/sortBy';
 import { getReadFromLocalStorage, getWishFromLocalStorage, removeReadDataFromLocalStorage, removeWishDataFromLocalStorage } from '../../utils/localStorage';
 import { useEffect, useState } from 'react';
 import ReadBooksList from './ReadBooksList';
 import WishBooksList from './WishBooksList';
 import { toast } from 'react-toastify';
+import { sortBooks } from '../../utils/sortBy';
 
 const BooksList = () => {
   const [readData, setReadData] = useState([]);
   const [wishData, setWishData] = useState([]);
+  const [activeTab, setActiveTab] = useState('read');
 
   useEffect(() => {
     const readPromise = () => {
@@ -45,6 +46,15 @@ const BooksList = () => {
         setWishData(filterWish);
     }  
 
+  const handleSort = (type) => {
+    if (activeTab === 'read') {
+      setReadData(sortBooks(readData, type));
+    }
+    if (activeTab === 'wish') {
+      setWishData(sortBooks(readData, type));
+    }
+  }
+
     return (
         <>
         <Helmet>
@@ -58,10 +68,13 @@ const BooksList = () => {
             <div className='flex justify-center items-center'>
                 <div className="dropdown">
   <div tabIndex={0} role="button" className="btn m-1 btn-one">Sort By <ChevronDown/></div>
-  <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><button onClick={() => sortType('rating')}>Rating</button></li>
-    <li><button onClick={() => sortType('page')}>Number of Pages</button></li>
-    <li><button onClick={() => sortType('year')}>Publisher of Year</button></li>
+  <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-62 p-2 shadow-sm">
+    <li><button onClick={() => handleSort('rating-low')}>Rating: Low to High</button></li>
+    <li><button onClick={() => handleSort('rating-high')}>Rating: High to Low</button></li>
+    <li><button onClick={() => handleSort('page-low')}>Number of Pages: Low to High</button></li>
+    <li><button onClick={() => handleSort('page-high')}>Number of Pages: High to Low</button></li>
+    <li><button onClick={() => handleSort('year-low')}>Publisher of Year: Low to High</button></li>
+    <li><button onClick={() => handleSort('year-high')}>Publisher of Year: High to Low</button></li>
   </ul>
 </div>
             </div>
@@ -69,8 +82,8 @@ const BooksList = () => {
         <section className='my-5'>
         <Tabs>
     <TabList>
-      <Tab>Read Books</Tab>
-      <Tab>Wishlist Books</Tab>
+      <Tab onClick={() => setActiveTab('read')}>Read Books</Tab>
+      <Tab onClick={() => setActiveTab('wish')}>Wishlist Books</Tab>
     </TabList>
 
     <TabPanel>
